@@ -359,7 +359,7 @@ export const RESOURCES = [
   {
     id: 39, city: 'Denver, CO', category: 'food',
     name: 'Food Bank of the Rockies',
-    address: '10700 E 45th Ave, Denver, CO 80239',
+    address: '20600 E 38th Ave, Aurora, CO 80011',
     phone: '(303) 371-9250',
     hours: 'Mon–Fri 8 AM–4:30 PM; 500+ community partner locations statewide',
     description: 'Colorado\'s largest food bank, distributing 100M+ pounds of food annually across Colorado and Wyoming.',
@@ -369,7 +369,7 @@ export const RESOURCES = [
   {
     id: 40, city: 'Denver, CO', category: 'food',
     name: 'Denver Community Kitchen',
-    address: '1111 W Colfax Ave, Denver, CO 80204',
+    address: '3600 E 40th Ave, Denver, CO 80205',
     phone: '(303) 595-0302',
     hours: 'Daily meals; call for current schedule',
     description: 'Hot meals and groceries for anyone in need. Also provides culinary job training for people experiencing homelessness.',
