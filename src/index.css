@@ -6,12 +6,14 @@
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    @apply bg-surface text-foreground font-sans antialiased;
+    @apply bg-surface text-foreground font-sans antialiased transition-colors duration-200;
     margin: 0;
     min-height: 100dvh;
   }
+  .dark body { @apply bg-[#1A1816] text-[#F1EEEA]; }
   #root { min-height: 100dvh; display: flex; flex-direction: column; }
   h1, h2, h3, h4, h5, h6 { @apply font-bold leading-tight text-charcoal; }
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 { @apply text-white; }
   a { @apply transition-colors duration-150; }
   :focus-visible {
     outline: 2px solid #E8772C;
@@ -36,10 +38,30 @@
   .card {
     @apply bg-white rounded-2xl border border-border shadow-sm p-5 transition-shadow duration-200 hover:shadow-md;
   }
+  .dark .card { @apply bg-[#252220] border-[#3A3530]; }
   .input {
     @apply w-full px-4 py-2.5 rounded-lg border-2 border-border bg-white text-foreground text-base placeholder:text-slate-400 focus:outline-none focus:border-primary transition-colors duration-150;
   }
+  .dark .input { @apply bg-[#252220] border-[#3A3530] text-white; }
   .badge {
     @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold;
   }
+
+  /* Global dark-mode overrides for common utility classes used across pages */
+  .dark .bg-white { background-color: #252220; }
+  .dark .bg-surface { background-color: #1A1816; }
+  .dark .bg-muted { background-color: #211E1B; }
+  .dark .text-foreground { color: #F1EEEA; }
+  .dark .text-charcoal { color: #F1EEEA; }
+  .dark .text-slate-400 { color: #9A958E; }
+  .dark .text-slate-500 { color: #B5B0A8; }
+  .dark .border-border { border-color: #3A3530; }
+  .dark .border-orange-100 { border-color: #4A3826; }
+  .dark .bg-orange-50 { background-color: #2E2620; }
+  .dark .bg-orange-100 { background-color: #3A2E22; }
+  .dark .bg-green-50 { background-color: #1C2A1F; }
+  .dark .bg-green-100 { background-color: #1F2E22; }
+  .dark .bg-red-50 { background-color: #2A1D1D; }
+  .dark .bg-purple-100 { background-color: #2A2333; }
+  .dark .bg-yellow-300 { color: #1A1816; }
 }

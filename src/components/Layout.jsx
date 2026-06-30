@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { useTheme } from '../contexts/ThemeContext'
 import {
   Heart, Map, BookOpen, HelpCircle, Settings, MessageSquare,
-  Menu, X, LogOut, LayoutDashboard, ChevronDown
+  Menu, X, LogOut, LayoutDashboard, ChevronDown, Sun, Moon
 } from 'lucide-react'
 
 const NAV_ITEMS = [
@@ -20,6 +21,7 @@ const USER_NAV = [
 
 export default function Layout({ children }) {
   const { user, signOut } = useAuth()
+  const { dark, toggleTheme } = useTheme()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
   const [userOpen, setUserOpen] = useState(false)
@@ -71,6 +73,13 @@ export default function Layout({ children }) {
 
           {/* Auth section */}
           <div className="flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-surface text-foreground transition-colors cursor-pointer"
+              aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {dark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             {user ? (
               <div className="relative hidden md:block">
                 <button
@@ -227,6 +236,13 @@ export default function Layout({ children }) {
           <div className="border-t border-orange-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-orange-200">
             <p>© 2025 SeeServeSupport. Student-led initiative.</p>
             <p>Contact: <a href="mailto:schavali2020@gmail.com" className="hover:text-white transition-colors">schavali2020@gmail.com</a></p>
+          </div>
+          <div className="border-t border-orange-800 mt-6 pt-6">
+            <p className="text-[11px] leading-relaxed text-orange-300/80 max-w-4xl">
+              <strong className="text-orange-200">NOTE:</strong> SeeServeSupport is an independent, student-led civic campaign created and maintained by Suhas Chavali. It is not affiliated with, endorsed by, or operated on behalf of any government agency, nonprofit organization, or other entity referenced or listed on this site. Organization names, logos, and contact information displayed here belong to their respective owners and are provided solely for informational and resource-referral purposes. SeeServeSupport does not claim ownership of, partnership with, or authorization from any third-party organization named herein. If you are a representative of a listed organization and have concerns about how your information is presented, please contact{' '}
+              <a href="mailto:schavali2020@gmail.com" className="underline hover:text-white transition-colors">schavali2020@gmail.com</a>{' '}
+              for prompt correction or removal.
+            </p>
           </div>
         </div>
       </footer>
