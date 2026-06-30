@@ -226,7 +226,7 @@ export default function Layout({ children }) {
           </div>
           <div className="border-t border-orange-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-orange-200">
             <p>© 2025 SeeServeSupport. Student-led initiative.</p>
-            <p>Built with care to serve our community.</p>
+            <p>Contact: <a href="mailto:schavali2020@gmail.com" className="hover:text-white transition-colors">schavali2020@gmail.com</a></p>
           </div>
         </div>
       </footer>

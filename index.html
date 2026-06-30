@@ -11,6 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <!-- Netlify Forms detection -->
+    <form name="feedback" netlify netlify-honeypot="bot-field" hidden>
+      <input name="type" />
+      <input name="message" />
+      <input name="email" />
+      <input name="resource_name" />
+      <input name="resource_address" />
+      <input name="resource_phone" />
+      <input name="resource_city" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

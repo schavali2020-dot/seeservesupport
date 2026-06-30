@@ -27,8 +27,21 @@ export default function Feedback() {
     if (!form.message.trim()) { setError('Please enter a message.'); return }
     setLoading(true)
 
-    // If Supabase is configured, store to DB; otherwise just show success
     try {
+      // Submit to Netlify Forms
+      const body = new URLSearchParams({
+        'form-name': 'feedback',
+        type: form.type,
+        message: form.message,
+        email: form.email,
+        resource_name: form.resource_name,
+        resource_address: form.resource_address,
+        resource_phone: form.resource_phone,
+        resource_city: form.resource_city,
+      })
+      await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() })
+
+      // Also store in Supabase if configured
       if (isSupabaseConfigured) {
         await supabase.from('feedback').insert([{
           type: form.type,
